@@ -1,0 +1,95 @@
+.table-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 30px;
+  box-sizing: border-box;
+
+  & .bold {
+    font-weight: bold;
+  }
+
+  & .table-item__actions {
+    & .actionsAll app-checkbox-item {
+      margin-right: 100px;
+    }
+
+    & .actionsAll app-checkbox-item:last-child {
+      margin-right: 0;
+    }
+
+    & .actions app-checkbox-item {
+      margin-right: 130px;
+    }
+
+    & .actions app-checkbox-item:nth-child(2) {
+      margin-right: 139px;
+    }
+
+    & .actions app-checkbox-item:last-child {
+      margin-right: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .table-item {
+    flex-direction: column;
+
+    & .table-item__actions {
+      margin-top: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .table-item {
+    margin: 15px 0;
+    & .table-item__actions {
+      & .actionsAll app-checkbox-item {
+        margin-right: 60px;
+      }
+
+      & .actionsAll app-checkbox-item:last-child {
+        margin-right: 0;
+      }
+
+      & .actions app-checkbox-item {
+        margin-right: 90px;
+      }
+
+      & .actions app-checkbox-item:nth-child(2) {
+        margin-right: 99px;
+      }
+
+      & .actions app-checkbox-item:last-child {
+        margin-right: 6px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .table-item {
+    & .table-item__actions {
+      & .actionsAll app-checkbox-item {
+        margin-right: 20px;
+      }
+
+      & .actionsAll app-checkbox-item:last-child {
+        margin-right: 0;
+      }
+
+      & .actions app-checkbox-item {
+        margin-right: 50px;
+      }
+
+      & .actions app-checkbox-item:nth-child(2) {
+        margin-right: 59px;
+      }
+
+      & .actions app-checkbox-item:last-child {
+        margin-right: 6px;
+      }
+    }
+  }
+}

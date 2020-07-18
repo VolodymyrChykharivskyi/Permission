@@ -1,0 +1,16 @@
+.permission {
+  padding: 10px;
+  position: relative;
+
+  & app-button {
+    position: absolute;
+    bottom: -60px;
+    right: 10px;
+  }
+
+  @media screen and (max-width: 620px) {
+    & app-button {
+      left: 10px;
+    }
+  }
+}
