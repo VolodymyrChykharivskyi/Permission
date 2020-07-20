@@ -1,5 +1,5 @@
 <div class="table">
-  <ng-container *ngFor="let item of permissionService.initState">
-    <app-table-item [item]=item></app-table-item>
+  <ng-container *ngFor="let item of permissionService.state">
+    <app-table-item [item]="item"></app-table-item>
   </ng-container>
 </div>

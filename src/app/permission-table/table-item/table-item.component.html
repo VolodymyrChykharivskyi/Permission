@@ -5,47 +5,47 @@
   <div class="table-item__actions">
     <div *ngIf="item.id === 'sections'; else otherSectionsName" class="actionsAll">
       <app-checkbox-item
-        [checked]=item.view
-        [sectionName]=item.id
+        [checked]="item.view"
+        [sectionName]="item.id"
         description='Check all'
         action='view'
       ></app-checkbox-item>
       <app-checkbox-item
-        [checked]=item.edit
-        [sectionName]=item.id
+        [checked]="item.edit"
+        [sectionName]="item.id"
         description='Check all'
         action='edit'
-        [disabled]=!item.view
+        [disabled]="!item.view"
       ></app-checkbox-item>
       <app-checkbox-item
-        [checked]=item.remove
-        [sectionName]=item.id
+        [checked]="item.remove"
+        [sectionName]="item.id"
         description='Check all'
         action='remove'
-        [disabled]=!item.edit
+        [disabled]="!item.edit"
       ></app-checkbox-item>
     </div>
     <ng-template #otherSectionsName>
       <div class="actions">
         <app-checkbox-item
-          [checked]=item.view
-          [sectionName]=item.id
+          [checked]="item.view"
+          [sectionName]="item.id"
           description='View'
           action='view'
         ></app-checkbox-item>
         <app-checkbox-item
-          [checked]=item.edit
-          [sectionName]=item.id
+          [checked]="item.edit"
+          [sectionName]="item.id"
           description='Edit'
           action='edit'
-          [disabled]=!item.view
+          [disabled]="!item.view"
         ></app-checkbox-item>
         <app-checkbox-item
-          [checked]=item.remove
-          [sectionName]=item.id
+          [checked]="item.remove"
+          [sectionName]="item.id"
           description='Remove'
           action='remove'
-          [disabled]=!item.edit
+          [disabled]="!item.edit"
         ></app-checkbox-item>
       </div>
     </ng-template>

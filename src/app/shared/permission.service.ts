@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Permission} from '../interfaces/interfaces';
+import {LocalStorageService} from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PermissionService {
-  public initState: Permission[] = [
+  constructor(private localStorageService: LocalStorageService) {
+  }
+  public state: Permission[] = [
     {id: 'sections', view: false, edit: false, remove: false},
     {id: 'calendar', view: false, edit: false, remove: false},
     {id: 'profile', view: false, edit: false, remove: false},
@@ -23,9 +26,9 @@ export class PermissionService {
   }
 
   private changeForAllPermissions(action): void {
-    const actionValue: boolean = this.initState.filter(item => item.id !== 'sections')
+    const actionValue: boolean = this.state.filter(item => item.id !== 'sections')
       .every(el => el[action]) ? true : false;
-    this.initState.forEach(item => {
+    this.state.forEach(item => {
       if (item.id === 'sections') {
 
         // When disable permission
@@ -39,9 +42,9 @@ export class PermissionService {
   }
 
   public chooseAllPermission(sectionName: string, action: string): void {
-    const idx: number = this.initState.findIndex(element => element.id === sectionName);
-    const actionValue: boolean = (this.initState[idx][action]) ? false : true;
-    this.initState.forEach(item => {
+    const idx: number = this.state.findIndex(element => element.id === sectionName);
+    const actionValue: boolean = (this.state[idx][action]) ? false : true;
+    this.state.forEach(item => {
 
       // When disable permission
       if (!actionValue) {
@@ -53,7 +56,7 @@ export class PermissionService {
   }
 
   public changePermission(sectionName: string, action: string): void {
-    this.initState.forEach(item => {
+    this.state.forEach(item => {
       if (item.id === sectionName) {
         const actionValue: boolean = !item[action];
 
@@ -68,8 +71,8 @@ export class PermissionService {
     this.changeForAllPermissions(action);
   }
 
-  public setLocalStorage(): void {
-    const permissions = this.initState.map(item => {
+  public saveData(): void {
+    const permissions = this.state.map(item => {
       return {
         section: item.id,
         permission: {
@@ -79,6 +82,6 @@ export class PermissionService {
         }
       };
     });
-    localStorage.setItem('permissions', JSON.stringify(permissions));
+    this.localStorageService.set('permissions', permissions);
   }
 }

@@ -16,7 +16,7 @@ export class ButtonComponent implements OnInit {
   }
 
   onClickHandler() {
-    this.permissionService.setLocalStorage();
+    this.permissionService.saveData();
   }
 }
 

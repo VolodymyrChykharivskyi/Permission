@@ -3,10 +3,10 @@
     <input
       [id]="sectionName + description + action"
       type="checkbox"
-      [checked]=checked
+      [checked]="checked"
       (change)="onChangeCheck()"
-      [disabled]=disabled
+      [disabled]="disabled"
     >
-    <span class="item-description">{{description}}</span>
+    <span class="item-description">{{ description }}</span>
   </label>
 </span>
